@@ -5,7 +5,7 @@ import { base_url } from '../utils/config';
 import storeContext from '../context/storeContext';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
-import { Button } from './components/Button';
+import {GoldButton } from './components/Button';
 
 function EditPost() {
   const [post, setPost] = useState({});
@@ -104,7 +104,7 @@ function EditPost() {
     <div className='overflow-x-hidden'>
       <Header />
       <div>
-        <div className={` w-[50%] p-4 bg-white mx-auto mt-10 rounded-md shadow-md block`}>
+        <div className= "w-[80%] p-4 bg-white mx-auto mt-10 rounded-md shadow-md ">
           <h2 className='text-xl font-bold mb-5 uppercase'>Edit post</h2>
           <form onSubmit={handleSubmit}>
             <div className='flex flex-col w-full gap-1 mb-3'>
@@ -134,6 +134,7 @@ function EditPost() {
                 className='px-3 py-[6px] outline-none border border-slate-200 bg-transparent rounded-md focus:border-indigo:500 overflow-hidden'
               />
               <label>Link</label>
+              <p className=''>It needs to contain http / https to redirect</p>
               <input
                 rows={2}
                 onChange={inputHandler}
@@ -169,7 +170,7 @@ function EditPost() {
                       setToggle(!toggle);
                       setState({ ...state, visibility: false });
                     }}
-                    className='h-[1.5rem] w-[1.5rem] bg-indigo-500 rounded-full mr-1.5 cursor-pointer '
+                    className='h-[1.5rem] w-[1.5rem] bg-[#2B304D] rounded-full mr-1.5 cursor-pointer '
                   ></div>
                 </div>
               ) : (
@@ -179,13 +180,13 @@ function EditPost() {
                       setToggle(!toggle);
                       setState({ ...state, visibility: true });
                     }}
-                    className='h-[1.5rem] w-[1.5rem] bg-indigo-500 rounded-full ml-1.5 cursor-pointer '
+                    className='h-[1.5rem] w-[1.5rem] bg-[#2B304D] rounded-full ml-1.5 cursor-pointer '
                   ></div>
                 </div>
               )}
             </div>
             <div className='w-full flex items-center justify-center'>
-              <Button disabled={isLoading}>{isLoading ? 'Editing post...' : 'Edit Post'}</Button>
+              <GoldButton disabled={isLoading}>{isLoading ? 'Editing post...' : 'Edit Post'}</GoldButton>
             </div>
           </form>
         </div>

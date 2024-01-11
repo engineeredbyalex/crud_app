@@ -4,7 +4,7 @@ import axios from 'axios';
 import { base_url } from '../utils/config';
 import storeContext from '../context/storeContext';
 import toast from "react-hot-toast"
-import { BlueButton } from './components/Button';
+import { BlueButton, GoldButton } from './components/Button';
 
 function CreatePost() {
   const { store } = useContext(storeContext);
@@ -65,14 +65,10 @@ function CreatePost() {
   };
 
   return (
-    <div>
+ <div className='overflow-x-hidden'>
       <Header />
       <div>
-        <div
-          className={`w-[50%] p-4 bg-white mx-auto mt-10 rounded-md shadow-md ${
-            isVisible ? 'block' : 'hidden'
-          }`}
-        >
+       <div className= "w-[80%] p-4 bg-white mx-auto mt-10 rounded-md shadow-md ">
           <h2 className='text-xl font-bold mb-5 uppercase'>Create post</h2>
           <form onSubmit={handleSubmit}>
             <div className='flex flex-col w-full gap-1 mb-3'>
@@ -102,6 +98,7 @@ function CreatePost() {
                 className='px-3 py-[6px] outline-none border border-slate-200 bg-transparent rounded-md focus:border-indigo:500 overflow-hidden'
               ></textarea>
               <label>Link</label>
+               <p className=''>It needs to contain http / https to redirect</p>
               <input
                 rows={2}
                 onChange={inputHandler}
@@ -129,7 +126,7 @@ function CreatePost() {
                 className='px-3 py-[6px] outline-none border border-slate-200 bg-transparent rounded-md focus:border-indigo:500 overflow-hidden'
               ></input>
             </div>
-            <div className='mb-5 '>
+            <div className='mb-5 flex items-center  gap-10 '>
               {!toggle ? (
                 <div className='bg-gray-200 w-[6rem] h-[3rem] rounded-full flex items-center justify-start '>
                   <div
@@ -140,7 +137,7 @@ function CreatePost() {
                         visibility: 'true',
                       });
                     }}
-                    className='h-[2.5rem] w-[2.5rem] bg-blue-500 rounded-full ml-1.5 cursor-pointer '
+                    className='h-[2.5rem] w-[2.5rem] bg-[#2B304D] rounded-full ml-1.5 cursor-pointer '
                   ></div>
                 </div>
               ) : (
@@ -153,14 +150,18 @@ function CreatePost() {
                         visibility: 'false',
                       });
                     }}
-                    className='h-[2.5rem] w-[2.5rem] bg-blue-500 rounded-full mr-1.5 cursor-pointer '
-                  ></div>
+                    className='h-[2.5rem] w-[2.5rem] bg-[#2B304D]  rounded-full mr-1.5 cursor-pointer '
+                    >
+                  </div>
                 </div>
               )}
+              {toggle ? (<h4 className='font-bold'>True</h4>) :(<h4 className='font-bold'>False</h4>)}
             </div>
-            <BlueButton disabled={isLoading}>
+            <div className='w-full flex items-center justify-center'>
+               <GoldButton disabled={isLoading}>
               {isLoading ? 'Creating project...' : 'Create project'}
-            </BlueButton>
+            </GoldButton>
+              </div>
           </form>
         </div>
       </div>

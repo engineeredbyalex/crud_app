@@ -4,7 +4,7 @@ import axios from 'axios'
 import storeContext from '../context/storeContext'
 import Header from './components/Header'
 import { Link } from 'react-router-dom'
-import { BlueButton, GreenButton, RedButton } from './components/Button'
+import { BlueButton, GoldButton, RedButton } from './components/Button'
 import toast from 'react-hot-toast'
 
 function AllPosts() {
@@ -47,23 +47,26 @@ function AllPosts() {
   }
 
   return (
-    <div className='overflow-hidden'>
+    <div className='overflow-x-hidden'>
       <Header />
      <div className='w-[80%] mx-auto py-10'>
-        <h2 className=''>Posts</h2>
+        <h2 className='text-[#2B304D]'>Posts</h2>
          <div className='lg:grid grid-cols-3 flex flex-col gap-10'>
-          {posts.map((post, index) => <div key={post._id}  className='bg-white  rounded-md block px-5 py-3 shadow-md'>
-            <img className='mb-5' src={post.image} alt={post.title} />
-            <h3 className='text-2xl mt-5 mb-5 font-bold'>{post.title}</h3>
-              <BlueButton>
+          {posts.map((post, index) =>
+             <div key={post._id} className='bg-slate-100 flex flex-col items-center w-[20rem] h-auto px-3 py-5 rounded-md'>
+           <img className='mb-5 w-[15rem] h-[15rem] rounded-md' src={post.image} alt={post.title} />
+            <h3>{post.title}</h3>
+              <div className='mb-3'>
+                <BlueButton>
             <a href='/'>
                 View Project
             </a>
               </BlueButton>
+              </div>
             <div className='flex flex-col items-center mt-1 gap-3 '>
-              <GreenButton>
+              <GoldButton>
                 <Link to={`/post/edit/${post._id}`}>Edit</Link>
-              </GreenButton>
+              </GoldButton>
               <RedButton>
                 <Link onClick={() => delete_post(post._id)}>Delete</Link>
               </RedButton>

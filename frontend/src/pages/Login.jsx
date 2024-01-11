@@ -45,8 +45,8 @@ function Login() {
   }
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen">
-      <div className='w-[370px] text-black h-[560px]'>
+    <div className="flex justify-center items-center w-screen h-screen bg-[#151D2F]">
+      <div className='lg:w-[25rem]  text-black'>
         <div className='bg-white  w-full shadow-md px-7 py-10 rounded-md '>
           <div className='text-center'>
           <h3 className='uppercase font-semibold'>Portfolio App</h3>
